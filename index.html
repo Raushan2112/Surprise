@@ -63,9 +63,35 @@ button {
 
 #celebration h2 {
   font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-/* NO popup (IMPORTANT: display NONE only once) */
+/* GIF section */
+.gifs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.gifs img {
+  width: 120px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* Message */
+.message {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.12);
+  padding: 25px;
+  border-radius: 20px;
+  line-height: 1.6;
+}
+
+/* NO popup */
 #noPopup {
   display: none;
   position: fixed;
@@ -107,9 +133,27 @@ button {
 <!-- Celebration -->
 <div id="celebration">
   <h2>💖 I KNEW YOU LOVE ME 💖</h2>
-  <p><strong>Buggu..</strong> I know we both have gone through a lot in our lives.</p>
-  <p>No matter what comes, we choose each other. Always. ❤️</p>
-  <p><strong>Love you a lot !!</strong></p>
+
+  <!-- GIFs -->
+  <div class="gifs">
+    <img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif" alt="hug">
+    <img src="https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif" alt="kiss">
+    <img src="https://media.giphy.com/media/gnXG2hODaCOru/giphy.gif" alt="cuddle">
+    <img src="https://media.giphy.com/media/3M4NpbLCTxBqU/giphy.gif" alt="love">
+  </div>
+
+  <!-- Message -->
+  <div class="message">
+    <p><strong>Buggu..</strong> I know we both have gone through a lot in our lives. There were many ups and downs, many painful moments, and phases where everything felt confusing and heavy.</p>
+
+    <p>What has happened in the past is done now. We cannot change it and we don’t want to live in it anymore. From here, we want to move forward together with positive vibes, understanding, and patience.</p>
+
+    <p>We promise that no matter how hard things get, we will talk, support each other and stand by each other.</p>
+
+    <p><strong>No matter what comes, we choose each other. Always. ❤️</strong></p>
+
+    <p><strong>Love you a lot !!</strong></p>
+  </div>
 </div>
 
 <!-- NO popup -->
