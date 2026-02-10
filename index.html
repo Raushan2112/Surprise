@@ -37,7 +37,7 @@ body {
   to { transform: translateY(-10vh); }
 }
 
-/* Main content */
+/* Main box */
 .container {
   text-align: center;
   padding: 20px;
@@ -75,7 +75,7 @@ button {
   color: white;
 }
 
-/* Celebration */
+/* Celebration screen */
 #celebration {
   display: none;
   position: fixed;
@@ -124,6 +124,22 @@ button {
   font-size: 1.1rem;
   box-shadow: 0 0 20px red;
 }
+
+/* Music button */
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  z-index: 100;
+}
 </style>
 </head>
 
@@ -131,8 +147,11 @@ button {
 
 <!-- Music -->
 <audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7b4c8e5c3b.mp3">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7b4c8e5c3b.mp3" type="audio/mpeg">
 </audio>
+
+<!-- Music Button -->
+<button id="musicBtn">🔊 Play Music</button>
 
 <!-- Question -->
 <div class="container" id="questionBox">
@@ -156,7 +175,7 @@ button {
 
     <p>What has happened in the past is done now. We cannot change it and we don’t want to live in it anymore. From here, we want to move forward together with positive vibes, understanding, and patience.</p>
 
-    <p>We promise that no matter how hard things get, we will talk, support each other and stand by each other. Life will be better when we walk side by side.</p>
+    <p>We promise that no matter how hard things get, we will talk, we will support each other and we will stand by each other. Growth, studies, career, life everything will be better when we walk side by side.</p>
 
     <p><strong>No matter what comes, we choose each other. Always. ❤️</strong></p>
 
@@ -186,23 +205,28 @@ setInterval(() => {
   setTimeout(()=>h.remove(),6000);
 },300);
 
-/* NO click */
-const noBtn = document.getElementById("noBtn");
-const noPopup = document.getElementById("noPopup");
+/* Music control */
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
-noBtn.addEventListener("click", () => {
-  noPopup.style.display = "flex";
-  setTimeout(() => {
-    noPopup.style.display = "none";
-  }, 2500);
+musicBtn.addEventListener("click", () => {
+  music.play();
+  musicBtn.innerText = "🎵 Music Playing";
+});
+
+/* NO click */
+document.getElementById("noBtn").addEventListener("click", () => {
+  const popup = document.getElementById("noPopup");
+  popup.style.display = "flex";
+  setTimeout(() => popup.style.display = "none", 2500);
 });
 
 /* YES click */
-document.getElementById("yesBtn").onclick = () => {
+document.getElementById("yesBtn").addEventListener("click", () => {
   document.getElementById("questionBox").style.display = "none";
   document.getElementById("celebration").style.display = "block";
-  document.getElementById("bgMusic").play();
-};
+  music.play();
+});
 </script>
 
 </body>
